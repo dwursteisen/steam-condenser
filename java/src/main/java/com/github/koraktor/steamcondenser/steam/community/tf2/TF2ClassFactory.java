@@ -15,6 +15,12 @@ import org.w3c.dom.Element;
  */
 abstract class TF2ClassFactory
 {
+
+    final static String ENGINER_CLASS_NAME = "Engineer";
+    final static String MEDIC_CLASS_NAME = "Medic";
+    final static String SNIPER_CLASS_NAME = "Sniper";
+    final static String SPY_CLASS_NAME = "Spy";
+    
     /**
      * Creates a new instance of TF2Class storing the statistics for a Team
      * Fortress 2 class with the assigned XML data
@@ -26,19 +32,19 @@ abstract class TF2ClassFactory
     {
 	String className = classData.getElementsByTagName("className").item(0).getTextContent();
 
-	if(className == "Engineer")
+	if(ENGINER_CLASS_NAME.equals(className))
 	{
 	    return new TF2Engineer(classData);
 	}
-	else if(className == "Medic")
+	else if(MEDIC_CLASS_NAME.equals(className))
 	{
 	    return new TF2Medic(classData);
 	}
-	else if(className == "Sniper")
+	else if(SNIPER_CLASS_NAME.equals(className))
 	{
 	    return new TF2Sniper(classData);
 	}
-	else if(className == "Spy")
+	else if(SPY_CLASS_NAME.equals(className))
 	{
 	    return new TF2Spy(classData);
 	}
